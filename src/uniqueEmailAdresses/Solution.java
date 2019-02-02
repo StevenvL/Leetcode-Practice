@@ -18,7 +18,6 @@ public class Solution {
 			}
 			
 			if(local.contains(".")) {
-				String temp = "";
 				local = local.replace(".", "");
 			}
 			
