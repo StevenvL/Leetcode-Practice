@@ -10,12 +10,12 @@ class Solution {
 
 		for(int current : A) {
 			if(current%2 == 0) {
-				result[evenIndex] = current;
-				evenIndex++;
+				result[evenIndex++] = current;
+				//evenIndex++;
 			}
 			else {
-				result[oddIndex] = current;
-				oddIndex--;
+				result[oddIndex--] = current;
+				//oddIndex--;
 			}
 		}
 		return result;
