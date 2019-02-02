@@ -36,6 +36,12 @@ class Solution {
  * Input: [3,1,2,4] 
  * Output: [2,4,3,1] The outputs [4,2,3,1], [2,4,1,3], and [4,2,1,3] would also be accepted.
  * 
+ * Ver. 1
  * Runtime: 10 ms, faster than 44.99% of Java online submissions for Sort Array By Parity.
  * Memory Usage: 32.1 MB, less than 7.46% of Java online submissions for Sort Array By Parity.
+ * 
+ * Ver. 2
+ * Runtime: 9 ms, faster than 92.53% of Java online submissions for Sort Array By Parity.
+ * Memory Usage: 30.2 MB, less than 32.10% of Java online submissions for Sort Array By Parity.
+ *
  **/
