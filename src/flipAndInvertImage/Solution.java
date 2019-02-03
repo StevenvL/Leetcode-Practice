@@ -65,4 +65,7 @@ public class Solution {
  * [[0,0,1,1],[1,0,0,1],[1,1,1,0],[0,1,0,1]]. Then invert the
  * image:[[1,1,0,0],[0,1,1,0],[0,0,0,1],[1,0,1,0]]
  * 
+ * 
+ * Runtime: 4 ms, faster than 66.81% of Java online submissions for Flipping an Image.
+ * Memory Usage: 27.3 MB, less than 89.12% of Java online submissions for Flipping an Image.
  **/
