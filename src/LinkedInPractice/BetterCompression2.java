@@ -1,11 +1,9 @@
 package LinkedInPractice;
 
-import java.util.HashMap;
-import java.util.Map.Entry;
 
 /**
- * @author stevenluu
- * Will attempt to solve BetterCompression problem using an Array.
+ * @author stevenluu 
+ * Solves BetterCompression using an Array
  */
 public class BetterCompression2 {
 	public static void main(String[] args) {
@@ -13,18 +11,41 @@ public class BetterCompression2 {
 		System.out.println(betterCompression(s));
 	}
 	
-	public static String iterateHmap(HashMap<Character, Integer> hmapToPrint) {
+	/**
+	 * Returns the index location for a certain character
+	 * ex) A will return the 0th location, Z will return the 25th location.
+	 * 
+	 * @param c is a character to be converted to a index of the array
+	 * @return the index of the character
+	 */
+	public static int getIndexOfChar(char c) {
+		return c - 'a';
+	}
+	
+	/**
+	 * Will convert a number between 0 and 25 to the coresponding alphabetical letter.
+	 * ex) 0 = a, 25 = z
+	 * 
+	 * @param i is an int to be converted to a letter of the alphabet
+	 * @return a letter of the alphabet
+	 */
+	private static String getCharOfNumber(int i) {
+	    return i >= 0 && i < 26 ? String.valueOf((char)(i + 'a')) : null;
+	}
+
+	
+	public static String iterateArray(int[] arr) {
 		String result = "";
-		for (Entry<Character, Integer> entry : hmapToPrint.entrySet()) {
-			Character key = entry.getKey();
-			Integer value = entry.getValue();
-			result = result + key + value;
+		for(int i = 0; i < arr.length; i++) {
+			if(arr[i] != 0) {
+				result += getCharOfNumber(i) + arr[i];
+			}
 		}
 		return result;
 	}
 
 	public static String betterCompression(String s) {
-		HashMap<Character, Integer> hmap = new HashMap<>();
+		int[] amountOfDupes = new int[26];
 
 		for (int i = 0; i < s.length(); i++) {
 			if (Character.isLetter(s.charAt(i))) {
@@ -35,16 +56,11 @@ public class BetterCompression2 {
 					currentValue += s.charAt(isNumberIndex);
 					isNumberIndex++;
 				}
-
-				if (hmap.containsKey(s.charAt(i))) {
-					int valueOfCurrentLetterInHMap = hmap.get(s.charAt(i));
-					int total = valueOfCurrentLetterInHMap + Integer.parseInt(currentValue);
-					hmap.put(s.charAt(i), total);
-				} else
-					hmap.put(s.charAt(i), Integer.parseInt(currentValue));
+				// Adds the number of duplicates to the correct index using the getIndexOfChar().
+				amountOfDupes[getIndexOfChar(s.charAt(i))] += Integer.parseInt(currentValue); 
 			}
 		}
-		return iterateHmap(hmap);
+		return iterateArray(amountOfDupes);
 	}
-
+	
 }
