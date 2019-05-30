@@ -14,13 +14,18 @@ import java.util.Arrays;
  * make the sum of min(a pair of int) as high as possible.
  *
  * you want the differnece between two numbers in a pair to be closest to 1.
+ * 
+ * Runtime: 15 ms, faster than 68.22% of Java online submissions for Array
+ * Partition I. 
+ * Memory Usage: 38.6 MB, less than 99.83% of Java online
+ * submissions for Array Partition I.
  */
 public class ArrayPartition {
 	public static int arrayPairSum(int[] nums) {
 		int total = 0;
 		Arrays.sort(nums);
-		for(int i = 0; i < nums.length-1; i = i+2) {
-			total += Math.min(nums[i], nums[i+1]);
+		for (int i = 0; i < nums.length - 1; i = i + 2) {
+			total += Math.min(nums[i], nums[i + 1]);
 		}
 		return total;
 	}
