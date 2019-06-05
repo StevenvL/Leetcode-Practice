@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 
  * Have the function LongestWord(sen) take the sen parameter being passed and
@@ -34,7 +36,21 @@ public class LargestWord {
 	    
 	  }
 	
+	public static String largestWordPart2(String sen) {
+		String[] result = sen.split("[^A-Z|^a-z|^0-9]"); //Split by anything except alphabet and numbers.
+		int largest = 0;
+		String largestWord = "";
+		for(String s : result) {
+			if(s.length() > largest) {
+				largestWord = s;
+				largest = s.length();
+			}
+		}
+		return largestWord;
+	}
+	
 	public static void main (String[] args) {
-		System.out.println(LongestWord("123456789 98765432"));
+		Scanner s = new Scanner(System.in);
+	    System.out.print(LongestWord(s.nextLine())); 
 	}
 }
