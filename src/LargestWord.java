@@ -17,12 +17,12 @@ public class LargestWord {
 		  
 		  for(int i = 0; i < sen.length(); i++) {
 			  char currentLetter = sen.charAt(i);
-			  if ((currentLetter > 64 && currentLetter < 91) || (currentLetter > 96 && currentLetter < 123)) {
+			  if (Character.isLetter(currentLetter) || Character.isDigit(currentLetter)) {
 				  currentWord += currentLetter;
 				  currentLength++;
 				  //System.out.println(currentWord + "      " + "length: " + currentLength);
 			  }
-			  if (!Character.isLetter(currentLetter) || i == sen.length()-1) {
+			  if (i == sen.length()-1 || !((Character.isLetter(currentLetter) || Character.isDigit(currentLetter)))) {
 				  if(currentLength > longestLength) {
 					  longestWord = currentWord;
 					  longestLength = currentLength;
@@ -50,7 +50,7 @@ public class LargestWord {
 	}
 	
 	public static void main (String[] args) {
-		Scanner s = new Scanner(System.in);
-	    System.out.print(LongestWord(s.nextLine())); 
+		String s  = "Argument Goes Here 1234566777777712313";
+	    System.out.print(LongestWord(s)); 
 	}
 }
