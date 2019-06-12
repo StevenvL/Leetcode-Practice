@@ -27,7 +27,7 @@ public class ReverseStringInPlace {
 	}
 
 	public static void helperRecursive(char[] s, int currentIndex) {
-		if (currentIndex > (s.length) / 2 || s.length <= 1)
+		if (currentIndex >= (s.length) / 2 || s.length <= 1)
 			return;
         int reversedIndex = s.length - currentIndex - 1;
 		char reversedChar = s[reversedIndex];
