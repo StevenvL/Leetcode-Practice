@@ -22,14 +22,12 @@
 public class AlternatingBits {
 	public static boolean hasAlternatingBits(int n) {
 		String r = Integer.toBinaryString(n);
-		boolean hasAlt = true;
-		System.out.println(r);
 		for(int i = 0; i < r.length()-1; i++) {
 			if(r.charAt(i) == r.charAt(i+1)) {
-				hasAlt = false;
+				return false;
 			}
 		}
-		return hasAlt;
+		return true;
 	}
 	public static void main(String[] args) {
 		hasAlternatingBits(7);
