@@ -6,8 +6,7 @@ public class FirstUnique {
 	     HashMap<Character, Integer> map =  new HashMap<>();
 	     for(int i =0; i<s.length(); i++) {
 	    	 if(map.containsKey(s.charAt(i))) {
-	    		 int count = map.get(s.charAt(i)) + 1;
-	    		 map.replace(s.charAt(i), count);
+	    		 map.put(s.charAt(i), map.get(s.charAt(i)) + 1);
 	    	 }
 	    	 else
 	    		 map.put(s.charAt(i), 1);
