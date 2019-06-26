@@ -12,7 +12,6 @@ public class PlusOneProblem {
 		 bd = bd.add(one);
 		 String s = bd.toString();
 		 
-		 
 		 int[] rarr = new int[s.length()];
 		 for(int i = 0; i < s.length(); i++) {
 			 rarr[i] = Integer.parseInt(s.charAt(i) + "");
