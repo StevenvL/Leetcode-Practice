@@ -14,11 +14,21 @@ public class findCharDifference {
 		}
 		return '0';
 }
+	
+	public static char findTheDifference2(String s, String t) {
+		int charResult = t.charAt(t.length()-1);
+		
+		for(int i = 0; i < s.length(); i++) {
+			charResult -= s.charAt(i);
+			charResult += t.charAt(i);
+		}
+		return (char) charResult;
+	}
 
 	public static void main(String[] args) {
 		String a = "abcd";
 		String b = "abcde";
-		System.out.println(findTheDifference(a, b));
+		System.out.println(findTheDifference2(a, b));
 
 	}
 }
