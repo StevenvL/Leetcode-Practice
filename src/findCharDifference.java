@@ -15,6 +15,8 @@ public class findCharDifference {
 		return '0';
 }
 	
+	
+	//Idea from leetcode discussion
 	public static char findTheDifference2(String s, String t) {
 		int charResult = t.charAt(t.length()-1);
 		
