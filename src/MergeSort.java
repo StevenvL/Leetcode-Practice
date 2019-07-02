@@ -14,9 +14,6 @@ public class MergeSort {
 		System.arraycopy(a, 0, lArr, 0, lArr.length);
 		System.arraycopy(a, mid, rArr, 0, rArr.length);
 		
-		System.out.println(Arrays.toString(lArr));
-		System.out.println(Arrays.toString(rArr));
-		
 		lArr = mergeSort(lArr);
 		rArr = mergeSort(rArr);
 		
