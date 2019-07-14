@@ -12,18 +12,21 @@ public class LetterPermutations {
 	
 
 	public static void createPermutations(ArrayList<String> res, char[] charArr, int index) {
-	        if(index == charArr.length)
-	            res.add(new String(charArr));
-	        else {
-	            if(Character.isLetter(charArr[index])) {
-	            	charArr[index] = Character.toLowerCase(charArr[index]);
-	            	createPermutations(res,charArr,index+1);
-	            	charArr[index] = Character.toUpperCase(charArr[index]);
-	            	}
-	            createPermutations(res,charArr,index+1);
-	        }
-	    }
-
+		//If Index == charArr.length add it to the ArrayList RES.
+		//Otherwise go "left" make the current character lowerCase or go "right" and make the currentLetter upperCase;
+		if(index == charArr.length)
+			res.add(new String(charArr));
+		else {
+			if(Character.isLetter(charArr[index])) {
+				charArr[index] = Character.toLowerCase(charArr[index]);
+				createPermutations(res,charArr,index+1);
+				charArr[index] = Character.toUpperCase(charArr[index]);
+			}
+			createPermutations(res,charArr,index+1);
+		}
+		
+	}
+	
 	public static void main(String[] args) {
 		String word = "a1b2";
 		List<String> result = letterCasePermutation(word);
