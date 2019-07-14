@@ -24,8 +24,26 @@ public class ReverseNumber {
 			return (int) result;
 
 	}
+	
+	public static int reverse2(int x) {
+		int isPositive = 1;
+		if(x < 0) {
+			isPositive = -1;
+			x*= isPositive;
+		}
+		long res = 0;
+		while(x > 0) {
+			res *= 10;
+			res += x%10;
+			x /= 10;
+		}
+		if((int) res == res)
+			return (int) res * isPositive;
+		else
+			return 0;
+	}
 
 	public static void main(String[] args) {
-		System.out.println(reverse(1235913250));
+		System.out.println(reverse2(Integer.MIN_VALUE));
 	}
 }
