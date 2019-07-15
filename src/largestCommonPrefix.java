@@ -32,9 +32,21 @@ public class largestCommonPrefix {
 		}
 		return res;
 	}
+	
+	public static String longestPrefix(String[] strs) {
+		if(strs== null || strs.length == 0)
+			return "";
+		String res = strs[0];
+		for(String word: strs) {
+			while(!word.startsWith(res))
+				res = res.substring(0, res.length()-1);
+			}
+		return res;
+		
+	}
 
 	public static void main(String[] args) {
 		String[] strs = { "flower", "flow", "flight" };
-		System.out.println("Result: " + longestCommonPrefix(strs));
+		System.out.println("Result: " + longestPrefix(strs));
 	}
 }
