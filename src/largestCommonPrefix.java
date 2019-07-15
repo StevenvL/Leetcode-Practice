@@ -33,6 +33,7 @@ public class largestCommonPrefix {
 		return res;
 	}
 	
+	//Better solution
 	public static String longestPrefix(String[] strs) {
 		if(strs== null || strs.length == 0)
 			return "";
