@@ -26,6 +26,33 @@ public class FindAnagramsInString {
 		return res;
 	}
 	
+	public static List<Integer> findAnagrams2(String s, String p) {
+		if(p.length() > s.length())
+			return new ArrayList<Integer>();
+		
+		
+		int[] pArr = new int[128];
+		for(int i = 0; i < p.length(); i++) {
+			pArr[p.charAt(i)]++;
+		}
+		
+		ArrayList<Integer> res = new ArrayList<>();
+		for(int i = 0; i < s.length() - p.length()+1; i++) {
+			int lengthTo = i + p.length();
+			int[] checkMe = Arrays.copyOf(pArr, pArr.length);
+			boolean same = true;
+			for(int j = i; j < lengthTo; j++) {
+				if(--checkMe[s.charAt(j)] < 0) {
+					same = false;
+				}
+			}
+			if(same)
+				res.add(i);
+		}
+		return res;
+	}
+	
+	
 	
 	public static void main (String[] args) {
 		String a = "abab";
