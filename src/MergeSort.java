@@ -3,60 +3,55 @@ import java.util.Arrays;
 public class MergeSort {
 
 	public static int[] mergeSort(int[] a) {
-		if(a.length < 2) {
+		if (a.length < 2)
 			return a;
-		}
-	
-		int mid = a.length/2;
-		int[] lArr = new int[mid];
-		int[] rArr = new int[a.length-mid];
-
-		System.arraycopy(a, 0, lArr, 0, lArr.length);
-		System.arraycopy(a, mid, rArr, 0, rArr.length);
+		int mid = a.length / 2;
+		int[] left = new int[a.length/2];
+		int[] right = new int[a.length - mid];
+		System.arraycopy(a, 0, left, 0, left.length);
+		System.arraycopy(a, mid, right, 0, right.length);
 		
-		lArr = mergeSort(lArr);
-		rArr = mergeSort(rArr);
 		
-		return doMergeSort(lArr,rArr);
-		
+		left = mergeSort(left);
+		right = mergeSort(right);
+		return merge(left, right);
 	}
-	
-	public static int[] doMergeSort(int[] lArr, int[] rArr) {
-		int[] result = new int[lArr.length + rArr.length];
-		int left = 0;
-		int right = 0;
+
+	public static int[] merge(int[] left, int[] right) {
+		int[] result = new int[left.length + right.length];
+		
+		int lIndex = 0;
+		int rIndex = 0;
 		int k = 0;
 		
-		
-		while(left < lArr.length && right <rArr.length) {
-			if(lArr[left] < rArr[right]) {
-				result[k] = lArr[left];
-				left++;
+		while(lIndex < left.length && rIndex < right.length) {
+			if(left[lIndex] < right[rIndex]) {
+				result[k] = left[lIndex];
 				k++;
+				lIndex++;
 			}
 			else {
-				result[k] = rArr[right];
-				right++;
+				result[k] = right[rIndex];
 				k++;
+				rIndex++;
 			}
 		}
 		
-		while(left < lArr.length) {
-			result[k] = lArr[left];
-			left++;
+		while(lIndex < left.length) {
+			result[k] = left[lIndex];
 			k++;
+			lIndex++;
 		}
-		
-		while(right < rArr.length) {
-			result[k] = rArr[right];
-			right++;
+		while(rIndex < right.length) {
+			result[k] = right[rIndex];
 			k++;
+			rIndex++;
 		}
 		return result;
 	}
-	
-	public static void main (String [] args) {
-		int[] res = {6,5,1,2,3,4,7,8,9,10};
+
+	public static void main(String[] args) {
+		int[] res = { 6, 5, 1, 2, 3, 4, 7, 8, 9, 10 };
 		System.out.println(Arrays.toString(mergeSort(res)));
 	}
 }
